@@ -1,3 +1,3 @@
 ## Tic tac toe Game
 
-- This is a game build using react native. 
+- This is a Android application build using react native. 
