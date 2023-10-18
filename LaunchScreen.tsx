@@ -1,7 +1,7 @@
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {
-    Dimensions,
+  Dimensions,
   Image,
   Pressable,
   SafeAreaView,
@@ -15,8 +15,9 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
+import { Props } from './App';
 
-function LaunchScreen() {
+function LaunchScreen({ route, navigation }: Props) {
     const isDarkMode = useColorScheme() === 'dark';
 
     const backgroundStyle = {
@@ -47,7 +48,7 @@ function LaunchScreen() {
             Pick who goes first?
           </Text>
           <View style={{flexDirection:"row",alignSelf:"center"}}>
-              <Pressable onPress={() => console.log("hiii")}>
+              <Pressable onPress={() => navigation.navigate("GameScreen")}>
                 <Image
                 style={styles.imageSquare}
                 source={require("./images/imageX.png")}/>

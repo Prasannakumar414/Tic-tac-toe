@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LaunchScreen from './LaunchScreen';
 import GameScreen from './GameScreen';
 import { NavigationContainer } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 type RootStackParamList = {
   LaunchScreen: undefined;
@@ -12,6 +13,8 @@ type RootStackParamList = {
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
+
+export type Props = NativeStackScreenProps<RootStackParamList, 'LaunchScreen', 'RootStack'>;
 
 function App(): JSX.Element {
 

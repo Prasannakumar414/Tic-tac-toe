@@ -7,8 +7,8 @@ import {
 
 function GameScreen() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , borderColor:"black"}}>
+        <Text >Home Screen</Text>
       </View>
     );
   }
