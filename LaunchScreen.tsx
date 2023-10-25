@@ -53,7 +53,7 @@ function LaunchScreen({ route, navigation }: Props) {
                 style={styles.imageSquare}
                 source={require("./images/imageX.png")}/>
               </Pressable>
-              <Pressable onPress={() => console.log("hello")}>
+              <Pressable onPress={() => navigation.navigate("GameScreen")}>
                 <Image
                 style={styles.imageSquare}
                 source={require("./images/imageO.png")}/> 
@@ -65,7 +65,7 @@ function LaunchScreen({ route, navigation }: Props) {
     );
   }
 
-  const styles = StyleSheet.create({
+  export const styles = StyleSheet.create({
     rootContainer: {
       color:["#00D2FF","#3A7BD5"],
       flexDirection: "column",
@@ -105,7 +105,16 @@ function LaunchScreen({ route, navigation }: Props) {
       borderRadius:20,
       margin:20
     },
+    gameSquare:{
+      borderRadius:20,
+      height:351,
+      width:351,
+      borderWidth:1,
+      alignSelf:"center",
+      borderColor:"white",
+      backgroundColor:"white",
+      margin:50,
+    }
   });
 
   export default LaunchScreen;
-  
