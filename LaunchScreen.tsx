@@ -114,6 +114,12 @@ function LaunchScreen({ route, navigation }: Props) {
       borderColor:"white",
       backgroundColor:"white",
       margin:50,
+    },
+    gameTile:{
+      zIndex:100,
+      height:117,
+      width:117,
+      position:"absolute",
     }
   });
 

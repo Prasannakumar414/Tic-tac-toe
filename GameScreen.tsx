@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Pressable,
   StyleSheet,
@@ -14,6 +14,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 function GameScreen() {
   const gameSquareSide : number = 117;
+  const [player,setPlayer] = useState(1);
   const handlePress = (event:GestureResponderEvent) => {
     // Get the touch location from the event
     const { locationX, locationY } = event.nativeEvent;
@@ -37,6 +38,7 @@ function GameScreen() {
       <LinearGradient colors={["#00D2FF","#3A7BD5"]}>
         <View style={styles.rootContainer}>
           <Text style={styles.title}>X's Turn</Text>
+          <Image style={[styles.gameTile,{top:320,left:30}]} source={require("./images/StateX.png")}></Image>
           <Pressable onPress={handlePress}>
           <View style={styles.gameSquare}>
             <Image style={{height:340,width:340,marginTop:5,marginLeft:5}} source={require("./images/play_board.png")}/>
