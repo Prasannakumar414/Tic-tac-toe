@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import LaunchScreen from './LaunchScreen';
-import GameScreen from './GameScreen';
+import LaunchScreen from './screens/LaunchScreen';
+import GameScreen from './screens/GameScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 

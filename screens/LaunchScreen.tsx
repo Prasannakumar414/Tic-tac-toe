@@ -15,7 +15,7 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import { Props } from './App';
+import { Props } from '../App';
 
 function LaunchScreen({ route, navigation }: Props) {
     const isDarkMode = useColorScheme() === 'dark';
@@ -33,10 +33,10 @@ function LaunchScreen({ route, navigation }: Props) {
         <View style={[styles.rootContainer]}>
           <Image 
             style={styles.imageContainer1} 
-            source={require("./images/launchO.png")}/>
+            source={require("../images/launchO.png")}/>
           <Image 
             style={styles.imageContainer2} 
-            source={require("./images/launchX.png")}/>
+            source={require("../images/launchX.png")}/>
           <Text 
             style={styles.title}  
             id="launchText">
@@ -51,12 +51,12 @@ function LaunchScreen({ route, navigation }: Props) {
               <Pressable onPress={() => navigation.navigate("GameScreen")}>
                 <Image
                 style={styles.imageSquare}
-                source={require("./images/imageX.png")}/>
+                source={require("../images/imageX.png")}/>
               </Pressable>
               <Pressable onPress={() => navigation.navigate("GameScreen")}>
                 <Image
                 style={styles.imageSquare}
-                source={require("./images/imageO.png")}/> 
+                source={require("../images/imageO.png")}/> 
               </Pressable> 
           </View>
         </View>
