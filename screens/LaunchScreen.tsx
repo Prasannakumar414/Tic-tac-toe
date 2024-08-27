@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   Dimensions,
@@ -18,6 +18,9 @@ import {
 import { Props } from '../App';
 
 function LaunchScreen({ route, navigation }: Props) {
+  useEffect(() => {
+    console.log("hii this is useEffect in launch screen")
+  });
     const isDarkMode = useColorScheme() === 'dark';
 
     const backgroundStyle = {
