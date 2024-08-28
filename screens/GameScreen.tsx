@@ -24,26 +24,12 @@ let initialCellStates = new Array(9).fill({
 })
 
 function GameScreen() {
-  const images = [];
-
-  const getImageCells = () => {
-    cells_state.map((c,i) => {
-      return <Image style={[styles.gameTile,{top:50 + 117*(3/i),left:30+117*(3-i%3), opacity:cells_state[i].isHit ? 1 : 0}]} source={cells_state[i].state}></Image>
-    })
-  } 
   useEffect(() => {
     console.log("hii this is useEffect")
   });
   const gameSquareSide : number = 117;
   const [player,setPlayer] = useState(1);
   const [cells_state, set_cells_state] = useState(initialCellStates)
-  const handlePress = (event:GestureResponderEvent) => {
-    //event.currentTarget.+;
-    // Get the touch location from the event
-    const { locationX, locationY } = event.nativeEvent;
-    console.log("the cell is "+ getCell(locationX,locationY,gameSquareSide))
-    updateCell(getCell(locationX,locationY,gameSquareSide))
-  };
   const updateCell = (num:number) => {
     console.log("hit squares are :" + cells_state)
     setPlayer(player == 0 ? 1 : 0)
@@ -82,7 +68,7 @@ function GameScreen() {
               </Pressable>
             ))
           }
-          <Pressable style={styles.gameSquare} onPress={handlePress}>
+          <Pressable style={styles.gameSquare}>
             <Image style={{height:340,width:340,marginTop:5,marginLeft:5}} source={require("../images/play_board.png")}/>
           </Pressable>
         </View>
