@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {
   Pressable,
-  StyleSheet,
-    Text,
-    Image,
+  Text,
+  Image,
   View,
-  GestureResponderEvent,
-  ImageBackground,
-  ImageBase,
-  TouchableWithoutFeedbackBase,
-  TouchableWithoutFeedbackComponent,
-  ImageComponent,
   Modal,
   Alert,
 } from 'react-native';
