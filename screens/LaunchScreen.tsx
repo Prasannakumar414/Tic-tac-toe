@@ -51,12 +51,12 @@ function LaunchScreen({ route, navigation }: Props) {
             Pick who goes first?
           </Text>
           <View style={{flexDirection:"row",alignSelf:"center"}}>
-              <Pressable onPress={() => navigation.navigate("GameScreen")}>
+              <Pressable onPress={() => navigation.navigate("GameScreen",{initialState:"X"})}>
                 <Image
                 style={styles.imageSquare}
                 source={require("../images/imageX.png")}/>
               </Pressable>
-              <Pressable onPress={() => navigation.navigate("GameScreen")}>
+              <Pressable onPress={() => navigation.navigate("GameScreen",{initialState:"O"})}>
                 <Image
                 style={styles.imageSquare}
                 source={require("../images/imageO.png")}/> 
@@ -134,16 +134,20 @@ function LaunchScreen({ route, navigation }: Props) {
       margin: 20,
       backgroundColor: 'white',
       borderRadius: 20,
+      borderWidth:2,
+      borderColor:'#2196F3',
       padding: 35,
       alignItems: 'center',
-      shadowColor: '#000',
+      shadowColor: '#000000',
       shadowOffset: {
         width: 0,
         height: 2,
       }
     },
     modalText: {
+      color:"#000000",
       marginBottom: 15,
+      fontSize:20,
       textAlign: 'center',
     },
     buttonOpen: {

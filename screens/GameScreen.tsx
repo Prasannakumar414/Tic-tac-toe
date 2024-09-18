@@ -10,20 +10,27 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './LaunchScreen';
 import LinearGradient from 'react-native-linear-gradient';
+import { RouteProp, useRoute } from '@react-navigation/native';
+import { Props, RootStackParamList } from '../App';
 let initialCellStates = new Array(9).fill({
   isHit:false, 
   state:require("/home/prasanna_apxor/Projects/Tic-tac-toe/images/StateX.png"),
   stateValue:100
 })
 
-function GameScreen() {
+type GameScreenRouteProp = RouteProp<RootStackParamList, 'GameScreen'>;
+
+function GameScreen({ route }: { route: GameScreenRouteProp }) {
   useEffect(() => {
     console.log("hii this is useEffect")
     calculateWinner()
   });
-  const [player,setPlayer] = useState(1);
+  const [player,setPlayer] = useState(route.params.initialState == "X"?0:1);
   const [cells_state, set_cells_state] = useState(initialCellStates)
   const [modalVisibility,setModalVisible] = useState(false)
+  const resetState = () => {
+    set_cells_state(initialCellStates)
+  }
   const updateCell = (num:number) => {
     console.log("hit squares are :" + cells_state)
     setPlayer(player == 0 ? 1 : 0)
@@ -92,13 +99,18 @@ function GameScreen() {
             onRequestClose={() => {
               Alert.alert('Modal has been closed.');
               setModalVisible(false);
+              resetState();
             }}>
               <View style={styles.centeredView}>
                 <View style={styles.modalView}>
+                  <Text style={styles.modalText}> player {player == 0 ? "O" : "X"} has won !!</Text>
                   <Pressable
                     style={[styles.button, styles.buttonClose]}
-                    onPress={() => setModalVisible(!modalVisibility)}>
-                    <Text style={styles.textStyle}>Game completed</Text>
+                    onPress={() => {
+                      setModalVisible(!modalVisibility);
+                      resetState();
+                      }}>
+                      <Text style={styles.textStyle}>Game completed</Text>
                   </Pressable>
                 </View>
               </View>

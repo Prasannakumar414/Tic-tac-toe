@@ -7,21 +7,21 @@ import GameScreen from './screens/GameScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-type RootStackParamList = {
-  LaunchScreen: undefined;
-  GameScreen: undefined;
+export type RootStackParamList = {
+  LaunchScreen: {initialState:string};
+  GameScreen: {initialState:string};
 };
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
-export type Props = NativeStackScreenProps<RootStackParamList, 'LaunchScreen', 'RootStack'>;
+export type Props = NativeStackScreenProps<RootStackParamList>;
 
 function App(): JSX.Element {
 
   return (
     <NavigationContainer>
         <RootStack.Navigator screenOptions={{ headerShown: false }}  initialRouteName="LaunchScreen">
-            <RootStack.Screen name='LaunchScreen' component={LaunchScreen} />
+            <RootStack.Screen name="LaunchScreen" component={LaunchScreen} />
             <RootStack.Screen name="GameScreen" component={GameScreen} />
         </RootStack.Navigator>
     </NavigationContainer>
