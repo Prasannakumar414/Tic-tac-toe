@@ -51,12 +51,12 @@ function LaunchScreen({ route, navigation }: Props) {
             Pick who goes first?
           </Text>
           <View style={{flexDirection:"row",alignSelf:"center"}}>
-              <Pressable onPress={() => navigation.navigate("GameScreen")}>
+              <Pressable onPress={() => navigation.navigate("GameScreen",{initialState:"X"})}>
                 <Image
                 style={styles.imageSquare}
                 source={require("../images/imageX.png")}/>
               </Pressable>
-              <Pressable onPress={() => navigation.navigate("GameScreen")}>
+              <Pressable onPress={() => navigation.navigate("GameScreen",{initialState:"O"})}>
                 <Image
                 style={styles.imageSquare}
                 source={require("../images/imageO.png")}/> 
@@ -123,7 +123,49 @@ function LaunchScreen({ route, navigation }: Props) {
       height:117,
       width:117,
       position:"absolute",
-    }
+    },
+    centeredView: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 22,
+    },
+    modalView: {
+      margin: 20,
+      backgroundColor: 'white',
+      borderRadius: 20,
+      borderWidth:2,
+      borderColor:'#2196F3',
+      padding: 35,
+      alignItems: 'center',
+      shadowColor: '#000000',
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      }
+    },
+    modalText: {
+      color:"#000000",
+      marginBottom: 15,
+      fontSize:20,
+      textAlign: 'center',
+    },
+    buttonOpen: {
+      backgroundColor: '#F194FF',
+    },
+    buttonClose: {
+      backgroundColor: '#2196F3',
+    },
+    textStyle: {
+      color: 'white',
+      fontWeight: 'bold',
+      textAlign: 'center',
+    },
+    button: {
+      borderRadius: 20,
+      padding: 10,
+      elevation: 2,
+    },
   });
 
   export default LaunchScreen;
